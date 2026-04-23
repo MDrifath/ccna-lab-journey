@@ -4,5 +4,6 @@
 To understand how CDP and LLDP work between a router and a switch.
 
 🖥️ Topology
+![Topology](images/Topology.png)
 
 
