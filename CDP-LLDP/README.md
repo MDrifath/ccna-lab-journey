@@ -1,4 +1,22 @@
- Lab: CDP and LLDP Configuration
+NOTE:
+
+sw1> - user EXEC mode is very limited 
+
+sw1# - Privileged EXEC mode provide complete access to view the configuration but cannot make change to the configuration
+
+sw1# - Configure terminal - meaning we can do the complete access to the devices configuration
+
+running-config - the current, active configuration file on the device and also we can edit the active config.
+stored in RAM and lost when the device restarts
+
+startup-config - the configuration file that will be loaded upon restart of the device and this is the saved config will not get lost when the device
+restarts.
+
+The point is whatever we editing in runnig-config needs to copied to the startup-config then only config applies when the system
+restarts.
+
+Lab: CDP and LLDP Configuration
+ 
 🎯 Objective
 
 To understand how CDP and LLDP work between a router and a switch.
