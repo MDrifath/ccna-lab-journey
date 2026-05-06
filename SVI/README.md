@@ -58,6 +58,21 @@ At last after configuring the SVI - inter vlan routing works automatically
 <img width="1142" height="650" alt="Screenshot 2026-04-20 114113" src="https://github.com/user-attachments/assets/73a5b993-e887-45e5-95e9-0f7e6756cc23" />
 
 
+Routed port - This is completely different topic for this SVIs but it is releated 
+
+A routed port is a physical interface on a Layer 3 switch that is configured to act like a router interface. It does not belong to any VLAN and is used for Layer 3 routing between networks or for connecting to routers/other Layer 3 devices.
+
+cmds:
+
+interface g0/1 - Selects the interface
+
+no switchport - Converts the port from Layer 2 (switchport) to Layer 3 (routed port)
+
+ip address 192.168.1.1 255.255.255.0 - Assigns an IP address to the routed port
+
+no shutdown - Enables the interface
+
+
 
 
 
