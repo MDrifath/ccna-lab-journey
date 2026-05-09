@@ -26,6 +26,8 @@ All interfaces on the root bridge are designated ports - Forwarding state
 
 clearly we can see the image all the interfaces which is connected to the root bridge are in Forwarding state
 
+you can ask why priority is 32769 instead of 32768? because its priority + Extended system ID ( which is our vlan number here our VLAN number is 1)
+
 Step-2: Find the ROOT ports
 
 
@@ -49,14 +51,25 @@ Root Port selection:
    Now we need the check which interface has the has the lowest port ID - port priority + port number
 
 
-
-Step-3: Find the Designated ports
-
-
-Every link has a designated port even if we're not carrying traffic over a link to prevent that loop one end is still active it's designated while the other end is blocking.
+Step-3: Find the Designated(forwarding) and  Non-Designated(blocking) ports
 
 
-Step-4: Find the Non-Designated(blocking) ports
+<img width="1897" height="872" alt="Screenshot 2026-05-08 211323" src="https://github.com/user-attachments/assets/a584e1e3-98b1-4c5d-a7b1-a14f66af30ee" />
+
+
+The one and only one port on each segment that is closest to root brifge in terms of cost
+
+Each remaining collision domain will select one interface to be a designated port(forward state) 
+
+The other port in collisio domain will be non-designated (blocking)
+
+Designated port selection:
+
+1. The switch with the lowest root cost will make its port designated
+
+2. If the root cost is the same, the switch with the lowest bridge ID will make its port designated
+
+3. The other switch will make its port non-designated (blocking)
 
 
 
