@@ -69,6 +69,63 @@ Load balance - Its actually running a load balancing algorithm that is going to 
 
 and these are actaully several algorithm we can select from and we get to choose the one we want 
 
+Now we will be having a doubt how it will etherchannel makes a single logical link where as we have two physical links which it will choose to flow?
+
+STP would see multiple separate links
+
+It would block some ports
+
+EtherChannel hides the multiple links from STP by presenting them as:
+
+-> one logical interface
+
+But internally:
+
+-> all physical interfaces still work.
+
+If one flow only uses one physical link, then why does bandwidth become 200 Mbps?
+
+The total EtherChannel bandwidth is shared across MULTIPLE traffic flows, not one single flow.
+
+Example:
+
+Fa0/1 = 100 Mbps
+Fa0/2 = 100 Mbps
+
+Etherchannel - Port-Channel1 = 200 Mbps logical bandwidth
+
+One single conversation/flow:
+
+PC1 → Server1
+
+This flow will use ONLY:
+
+Fa0/1
+
+So this single flow is still limited to:
+100 Mbps
+
+NOT 200 Mbps
+
+where does 200 Mbps come from?
+
+When MULTIPLE flows exist.
+
+Example:
+
+PC1 → Server1 = Fa0/1
+PC2 → Server2 = Fa0/2
+
+Now BOTH links are being used simultaneously.
+
+Total:
+
+100 + 100 = 200 Mbps
+
+EtherChannel does NOT increase speed for one single transfer it increases TOTAL available bandwidth for multiple traffic flows.
+
+
+
 
 
 
