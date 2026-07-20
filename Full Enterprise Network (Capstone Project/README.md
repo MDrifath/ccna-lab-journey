@@ -148,14 +148,9 @@ exit
 
 Step 4 — Configure STP Root Bridge
 
-```
-! SW1 — Set as root bridge for both VLANs
-spanning-tree vlan 10,20,99 root primary
-```
 
-> 📸 *(Screenshot — show spanning-tree)*
+<img width="1917" height="1025" alt="image" src="https://github.com/user-attachments/assets/9928f3c8-d5e6-49a3-8b09-f4fa6eccfa55" />
 
----
 
 Step 5 — Configure Trunk — SW1 to Router
 
@@ -257,36 +252,12 @@ ip access-group BLOCK_IT_TO_HR in
 exit
 ```
 
-> 📸 *(Screenshot — show ip access-lists)*
+<img width="1917" height="1017" alt="image" src="https://github.com/user-attachments/assets/42b2d60c-a77f-4065-88c4-b97914b21a1e" />
 
----
 
-Step 10 — Configure SSH on All Devices
+<img width="1917" height="1017" alt="image" src="https://github.com/user-attachments/assets/7fe83d02-0256-4233-8ca3-7eb72d4a047b" />
 
-```
-! On R1, SW1, SW2, SW3
-enable
-configure terminal
 
-hostname R1
-ip domain-name enterprise.local
-crypto key generate rsa
-! Select 1024 bits
-
-username admin privilege 15 secret cisco123
-
-line vty 0 4
-transport input ssh
-login local
-exit
-
-ip ssh version 2
-exit
-```
-
-> 📸 *(Screenshot — SSH test from PC1 to R1)*
-
----
 
 Step 11 — Configure Internet Router
 
